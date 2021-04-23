@@ -54,6 +54,17 @@ class RestaurantActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if (item?.itemId == R.id.change_layout){
+//            Log.d("debug", "list_icon")
+//            adapter.toggleItemViewType()
+//            binding.rcList.layoutManager = GridLayoutManager(this, 3)
+//        }
+//        else {
+//            binding.rcList.layoutManager = LinearLayoutManager(this)
+//            Log.d("debug", "linear")
+//        }
+//        adapter.notifyDataSetChanged()
+//        return super.onOptionsItemSelected(item)
         when (item.itemId) {
             R.id.change_layout -> {
                 val isLinearSwitched : Boolean = adapter.toggleItemViewType()
