@@ -21,6 +21,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/sofia_pro_semi_bold"
         android:text="TextView"
+        android:textColor="@color/dove_gray"
         android:textSize="17dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,12 +1,10 @@
 package com.thesis.android_challenge_w3
 
-import android.renderscript.Script
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
@@ -25,11 +23,11 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder {
         var layoutInflater = LayoutInflater.from(parent.context)
-        if (viewType == LIST_ITEM)
+        if (viewType == GRID_ITEM)
         {
-            view = layoutInflater.inflate(R.layout.restaurant_item_view, parent, false)
-        } else {
             view = layoutInflater.inflate(R.layout.restaurant_grid_view, parent, false)
+        } else {
+            view = layoutInflater.inflate(R.layout.restaurant_item_view, parent, false)
         }
         return ViewHolder(view)
     }

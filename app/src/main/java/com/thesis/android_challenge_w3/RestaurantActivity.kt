@@ -2,6 +2,7 @@ package com.thesis.android_challenge_w3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -53,26 +54,19 @@ class RestaurantActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item?.itemId == R.id.change_layout){
-            adapter.toggleItemViewType()
-            binding.rcList.layoutManager = GridLayoutManager(this, 2)
+        when (item.itemId) {
+            R.id.change_layout -> {
+                val isLinearSwitched : Boolean = adapter.toggleItemViewType()
+                if (isLinearSwitched){
+                    binding.rcList.layoutManager = LinearLayoutManager(this)
+                    item.title = "GRID"
+                }
+                else {
+                    binding.rcList.layoutManager = GridLayoutManager(this,3)
+                    item.title = "LIST"
+                }
+            }
         }
-        else {
-            binding.rcList.layoutManager = LinearLayoutManager(this)
-        }
-        adapter.notifyDataSetChanged()
-        return super.onOptionsItemSelected(item)
-//        when (item.itemId) {
-//            R.id.change_layout -> {
-//                val isLinearSwitched : Boolean = adapter.toggleItemViewType()
-//                if (isLinearSwitched){
-//                    binding.rcList.layoutManager = LinearLayoutManager(this)
-//                }
-//                else {
-//                    binding.rcList.layoutManager = GridLayoutManager(this,2)
-//                }
-//            }
-//        }
-//        return  true
+        return  true
     }
 }
